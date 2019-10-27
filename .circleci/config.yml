@@ -6,7 +6,6 @@ jobs:
     steps:
       - checkout
       - run: echo "Check out the repository"
-      - run: 
       - run: echo "docker version"
       - run: docker run -i -t rawdee/sfdx sfdx --version
 

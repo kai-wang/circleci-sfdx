@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run: echo "Check out the repository"
       - run: echo "docker version"
-      - run: docker run -i -t rawdee/sfdx sfdx --version
+      - run: sfdx --version
 
 workflows:
   version: 2

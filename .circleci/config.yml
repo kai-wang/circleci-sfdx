@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  sfdx:
+    docker:
+      - image: rawdee/sfdx:latest
+    steps:
+      - checkout
+      - run: echo "Check out the repository"
+      - run: 
+      - run: echo "docker version"
+      - run: docker run -i -t rawdee/sfdx sfdx --version
+
+workflows:
+  version: 2
+  sfdx-cicd:
+    jobs:
+      - sfdx

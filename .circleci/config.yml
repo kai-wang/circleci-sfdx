@@ -19,12 +19,9 @@ jobs:
           name: "sfdx version"
           command: sfdx --version
 
-  authorize-sfdx:
-    steps:
-
 
 workflows:
   version: 2
   sfdx-cicd:
     jobs:
-      - sfdx
+      - build

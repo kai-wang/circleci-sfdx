@@ -23,7 +23,7 @@ jobs:
           command: sfdx --version
       - run:
           name: "authorize to org"
-          command: sfdx force:auth:jwt:grant --client ${client_id} --jwtkeyfile $PWD/jwt.key --username ${username} 
+          command: sfdx force:auth:jwt:grant --clientid ${client_id} --jwtkeyfile $PWD/jwt.key --username ${username} 
 
 workflows:
   version: 2

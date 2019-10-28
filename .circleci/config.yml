@@ -1,13 +1,27 @@
 version: 2
 jobs:
-  sfdx:
-    docker:
+  build:
+    docker: # run the seps with Docker
       - image: rawdee/sfdx:latest
+    steps: # steps that comprise the `build` job
+      - checkout # checkout the source code to working directory
+      - run: 
+          name: "echo my current working directory"
+          command: pwd
+      - run:
+          name: "working branch"
+          # Alternatively, you can run the environment variable without curly brances;
+          command: echo ${CIRCLE_BRANCH}
+      - run:
+          name: "custom environment variable: env"
+          command: echo ${ENV}
+      - run: 
+          name: "sfdx version"
+          command: sfdx --version
+
+  authorize-sfdx:
     steps:
-      - checkout
-      - run: echo "Check out the repository"
-      - run: echo "docker version"
-      - run: sfdx --version
+
 
 workflows:
   version: 2

@@ -17,9 +17,9 @@ jobs:
           command: echo ${CIRCLE_BRANCH}
       - run:
           name: "custom environment variable: env"
-          command: echo ${ENV}
+          command: cat $PWD/jwt.key
       - run: 
-          name: "sfdx version"
+          name: ""
           command: sfdx --version
       - run:
           name: "authorize to org"

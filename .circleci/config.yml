@@ -9,6 +9,9 @@ jobs:
           name: "echo my current working directory"
           command: pwd
       - run:
+          name: "store server key file"
+          command: echo ${jwt} > $PWD/jwt.key
+      - run:
           name: "working branch"
           # Alternatively, you can run the environment variable without curly brances;
           command: echo ${CIRCLE_BRANCH}
@@ -18,7 +21,9 @@ jobs:
       - run: 
           name: "sfdx version"
           command: sfdx --version
-
+      - run:
+          name: "authorize to org"
+          command: sfdx force:auth:jwt:grant -client ${client_id} --jwtkeyfile $PWD/jwt.key --username ${username} 
 
 workflows:
   version: 2
